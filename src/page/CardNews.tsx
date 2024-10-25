@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
 interface Articles {
   id: string;
   name: string;
@@ -17,18 +16,18 @@ const CardNews: React.FC = () => {
   const [articles, setArticles] = useState<Articles[]>([]);
 
   useEffect(() => {
-    const fetchSources = async () => {
+    const fetchArticle = async () => {
       try {
         const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${import.meta.env.VITE_API_NEWS}`);
         setArticles(response.data.articles);
-        console.log("News sources:", response.data.articles);
+        // console.log("News sources:", response.data.articles);
       } catch (error) {
         console.log("Error fetching news sources:", error);
       }
     };
 
-    fetchSources();
-  }, [])
+    fetchArticle();
+  }, []);
 
   return (
     <div className="max-w-7xl min-h-screen grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 my-10 lg:mx-0 md:mx-10 mx-10">
