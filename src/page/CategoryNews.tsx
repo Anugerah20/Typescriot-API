@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useCategory } from "@/context/CategoryContext";
+// Build Nabil: Context category
+// import { useCategory } from "@/context/CategoryContext";
 
 interface Sources {
   id: string;
@@ -15,7 +16,8 @@ interface Sources {
 const CategoryNews: React.FC = () => {
   const [categoryNews, setCategoryNews] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const { toggleCategory } = useCategory();
+  // Build Nabil: Context category
+  // const { toggleCategory } = useCategory();
 
   useEffect(() => {
     const fetchSource = async () => {
@@ -56,7 +58,8 @@ const CategoryNews: React.FC = () => {
             key={index}
             onClick={() => {
               handleCategory(category);
-              toggleCategory(category);
+              // Buld Nabil: Context category
+              // toggleCategory(category);
             }}
           >
             {category}
