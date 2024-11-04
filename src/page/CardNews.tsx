@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-// Build Nabil: Set context category
-// import { useCategory } from "@/context/CategoryContext";
+import { useCategory } from "@/context/CategoryContext";
 
 interface Articles {
   id: string;
@@ -19,24 +18,19 @@ interface Articles {
 const CardNews: React.FC = () => {
   const [articles, setArticles] = useState<Articles[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  // Build Nabil: Context category
-  // const { category } = useCategory();
+  const { category } = useCategory();
 
   useEffect(() => {
     const fetchArticle = async () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?country=us&apiKey=${
+          `${
+            import.meta.env.VITE_API_URL
+          }/top-headlines?country=us&category=${category}&apiKey=${
             import.meta.env.VITE_API_NEWS
           }`
         );
-        // Build Nabil: Set category news
-        // const response = await axios.get(
-        //   `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${
-        //     import.meta.env.VITE_API_NEWS
-        //   }`
-        // );
         setArticles(response.data.articles);
       } catch (error) {
         console.log("Error fetching news sources:", error);
@@ -45,17 +39,12 @@ const CardNews: React.FC = () => {
       }
     };
 
-    // Build Nabil: Set category
-    // Fetch article by category
-    // if (category) {
-    //   fetchArticle();
-    // }
+    if (category) {
+      fetchArticle();
+    }
 
     fetchArticle();
-
-    // Build Nabil: Set category
-    // }, [category]);
-  }, []);
+  }, [category]);
 
   // Proccess Loading
   if (loading) {
