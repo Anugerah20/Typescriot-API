@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// Build Nabil: Context category
-// import { useCategory } from "@/context/CategoryContext";
+import { useCategory } from "@/context/CategoryContext";
 
 interface Sources {
   id: string;
@@ -16,14 +15,13 @@ interface Sources {
 const CategoryNews: React.FC = () => {
   const [categoryNews, setCategoryNews] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  // Build Nabil: Context category
-  // const { toggleCategory } = useCategory();
+  const { toggleCategory } = useCategory();
 
   useEffect(() => {
     const fetchSource = async () => {
       try {
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines/sources?apiKey=${
+          `${import.meta.env.VITE_API_URL}/top-headlines/sources?apiKey=${
             import.meta.env.VITE_API_NEWS
           }`
         );
@@ -58,8 +56,7 @@ const CategoryNews: React.FC = () => {
             key={index}
             onClick={() => {
               handleCategory(category);
-              // Buld Nabil: Context category
-              // toggleCategory(category);
+              toggleCategory(category);
             }}
           >
             {category}
