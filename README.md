@@ -6,11 +6,11 @@ I created this project using react.js, typescript, tailwind css and react contex
 
 The following is a photo documentation of the news night project:
 
-- <img width="947" alt="News original" src="https://github.com/user-attachments/assets/be212d30-3e68-498d-847f-f6f4e07f909d">
+<img width="947" alt="News original" src="https://github.com/user-attachments/assets/be212d30-3e68-498d-847f-f6f4e07f909d">
 
-- <img width="947" alt="News category business" src="https://github.com/user-attachments/assets/a6599872-9b67-475e-a3cc-d8696ae2af13">
+<img width="947" alt="News category business" src="https://github.com/user-attachments/assets/a6599872-9b67-475e-a3cc-d8696ae2af13">
 
 
 ## Run Project
 
-- npm run dev
+npm run dev
