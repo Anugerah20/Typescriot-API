@@ -25,7 +25,7 @@ const CardNews: React.FC = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?category=${category}&country=us&apiKey=${
+          `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${
             import.meta.env.VITE_API_NEWS
           }`
         );
