@@ -1,4 +1,4 @@
-# Name project News Night
+# Name project: News Night
 
 This project is a news fire that makes news content in America, there is a filter feature to select news by category
 
